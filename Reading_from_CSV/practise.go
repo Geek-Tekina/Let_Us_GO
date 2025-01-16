@@ -4,7 +4,14 @@ import (
 	"encoding/csv"
 	"fmt"
 	"os"
+	"slices"
 )
+
+type Course struct {
+	Name      string
+	TimeSpent string
+	TotalTime string
+}
 
 func main() {
 	fmt.Println("We will implement reading from a CSV File.")
@@ -23,4 +30,15 @@ func main() {
 	for i, row := range rows {
 		fmt.Println("Row", i+1, "->", row)
 	}
+	// when mapping the data, it is important to delte the first row
+	rows = slices.Delete(rows, 0, 1) // delete from rows starting from 0 index and delete 1 row
+
+	var courses []Course
+
+	for _, row := range rows {
+		newCourse := Course{row[0], row[1], row[2]}
+		courses = append(courses, newCourse)
+	}
+
+	fmt.Println(courses)
 }
