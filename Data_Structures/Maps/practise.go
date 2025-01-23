@@ -12,7 +12,11 @@ func main() {
 	for key, value := range reportCard {
 		fmt.Println(key, "->", value)
 	}
-
+	// to check if any key-value is present or not, as it always returns 0 as default value for any key that is not present
+	grades, exists := reportCard["Science"]
+	if !exists {
+		fmt.Println("The key value pair does not exists", grades, "Not found")
+	}
 	// deleting a key value pair
 	delete(reportCard, "EVS")
 
