@@ -1,0 +1,1 @@
+Hey, I am just an example text for demonstrating usecase of defer keyword in Go.
